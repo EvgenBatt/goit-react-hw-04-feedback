@@ -13,7 +13,24 @@ export const Button = styled.button`
   background-color: #fff;
 
   :hover {
-    border: 1px solid #006312e1;
-    background-color: #00a51e27;
+    border: ${props => {
+      if (props.option === 'good') {
+        return '1px solid #006312e1';
+      }
+      if (props.option === 'neutral') return '1px solid #9a9a00';
+      if (props.option === 'bad') return '1px solid red';
+    }};
+
+    background-color: ${props => {
+      if (props.option === 'good') {
+        return '#00a51e27';
+      }
+      if (props.option === 'neutral') {
+        return '#bdb70027';
+      }
+      if (props.option === 'bad') {
+        return '#a52c0027';
+      }
+    }};
   }
 `;
