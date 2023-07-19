@@ -9,7 +9,7 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const heandlerClick = normalizedOption => {
+  const handleClick = normalizedOption => {
     const option = normalizedOption.toLowerCase();
     if (option === 'good') {
       setGood(good + 1);
@@ -44,7 +44,7 @@ export const App = () => {
       }}
     >
       <Section title="Please leave feedback">
-        <FeedbackOptions options={options} onLeaveFeedback={heandlerClick} />
+        <FeedbackOptions options={options} onLeaveFeedback={handleClick} />
       </Section>
       <Section title="Statistics">
         {totalFeedback ? (
