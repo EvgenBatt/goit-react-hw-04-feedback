@@ -11,14 +11,18 @@ export const App = () => {
 
   const handleClick = normalizedOption => {
     const option = normalizedOption.toLowerCase();
-    if (option === 'good') {
-      setGood(good + 1);
-    }
-    if (option === 'neutral') {
-      setNeutral(neutral + 1);
-    }
-    if (option === 'bad') {
-      setBad(bad + 1);
+    switch (option) {
+      case 'good':
+        setGood(good + 1);
+        break;
+      case 'neutral':
+        setNeutral(neutral + 1);
+        break;
+      case 'bad':
+        setBad(bad + 1);
+        break;
+      default:
+        break;
     }
   };
 
@@ -29,7 +33,7 @@ export const App = () => {
     return Math.round((100 / total) * good || 0);
   };
 
-  const options = ['good', 'neutral', 'bad'];
+  const options = Object.keys({ good, neutral, bad });
   const totalFeedback = countTotalFeedback();
   const totalPercentage = countPositiveFeedbackPercentage() + '%';
 
